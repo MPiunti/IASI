@@ -38,9 +38,12 @@
          </table>
 
 
-<br/><br/>
-<button type="button" class="btn btn-primary btn-lg" ng-click="create()">Create New</button>
-<br/><br/>
+		<p class="text-right">
+		<button type="button" class="btn btn-primary btn-lg" ng-click="create()">Create New</button>
+		</p>
+		
+		<br/>
+		<br/>
 
 	  <form  class="form" name="newEmployeeForm" ng-submit="submitForm()" ng-show="newEmployeeShow"> 
          <label>First Name</label><input type="text" id="firstName" ng-model="employee.firstName" /> 
