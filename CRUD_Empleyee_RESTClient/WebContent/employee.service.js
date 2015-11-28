@@ -44,7 +44,7 @@
         }
 
         function Update(employee) {
-            return $http.put(SERVICE_ENDPOINT + user.id, employee) /*.then(handleSuccess(response), handleError(response));*/
+            return $http.put(SERVICE_ENDPOINT, employee) /*.then(handleSuccess(response), handleError(response));*/
         }
 
         function Delete(employee) {

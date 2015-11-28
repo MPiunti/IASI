@@ -36,13 +36,12 @@
 			   <td><button type="button" class="btn btn-info" ng-click="upd(employee)">Change</button></td>
             </tr>
          </table>
-      </div>
+
 
 <br/><br/>
 {{employee_update.firstname}}
 <br/><br/>
 
-<div ng-controller="EmployeeController"> 
 	  <form novalidate class="form" name="newEmployeeForm" ng-submit="submitForm()"> 
          <label>First Name</label><input type="text" id="firstName" ng-model="employee.firstName" /> 
          <label>Last Name</label><input type="text" id="lastName" ng-model="employee.lastName" /> 
@@ -57,12 +56,12 @@
 		 <button class="btn btn-success" type="submit">Create</button> 
       </form>
 
-<br/><br/>
+      <br/>
+      <br/>
 
 	  <form novalidate class="form" name="updateEmployeeForm" ng-submit="updateSubmit()"> 
 	     <input type="hidden" id="id" ng-model="employee_update.id" />
          <label>First Name</label><input type="text" id="firstName" name="employee_update.firstName" ng-model="employee_update.firstName" />
-		       <span ng-bind="employee_update.firstname"></span> {{employee_update.firstname}}
          <label>Last Name</label><input type="text" id="lastName" name="employee_update.lastName" ng-model="employee_update.lastName" /> 
 		 <label>Address</label>
 		 <select ng-model="employee_update.address.id">

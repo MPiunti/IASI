@@ -19,16 +19,23 @@
 		   $scope.employee_update ={}
 		   create();
         }
+        
+        $scope.updateSubmit  = function(item, event) { 
+			vm.employee = $scope.employee_update;
+			update();
+        }
 
 		$scope.del = function(obj) { 
 		   del(obj);
         }
 		
 		$scope.upd = function(obj) {  
-			
 			$scope.employee_update = {};
+			$scope.employee_update.address = {};
+			$scope.employee_update.id = obj.id;
 			$scope.employee_update.firstName = obj.firstName;
 			$scope.employee_update.lastName = obj.lastName;
+			$scope.employee_update.address.id = obj.address.id;
 			$scope.employee_update.salary = obj.salary;
 	    }
 
@@ -45,6 +52,7 @@
         
         
 		 vm.create = create;
+		 vm.update = update;
 		 vm.del = del;
 		 vm.getById = getById;
 		 vm.getAll = getAll;
