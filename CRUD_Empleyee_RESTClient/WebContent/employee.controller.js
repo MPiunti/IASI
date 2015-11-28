@@ -39,17 +39,7 @@
 			$scope.employee_update.salary = obj.salary;
 	    }
 
-
-		$scope.updateForm = function(obj) { 
-           //EmployeeService.Create()
-			   //.then(getAll());
-		   vm.employee_update = $scope.employee_update;
-		   vm.employee = {id : obj_id};
-		   getById();
-		   console.log(vm.employee);
-        }
-
-        
+      
         
 		 vm.create = create;
 		 vm.update = update;
@@ -58,70 +48,66 @@
 		 vm.getAll = getAll;
 		 getAll();
 
-
-
 		function create() {
-
             EmployeeService.Create(vm.employee)
                 .then(function (response) {
-                      //console.log(response); 
-                	  getAll();
+                	  //getAll();
                     }, function (response) {
-                      //console.log(response); 					
-                }).finally(function() {
+                    	console.log('wrong response'); 
+                    	console.log(response); 					
+                })['finally'](function() {
                     getAll();
-                });;
-			
+                    $scope.employee = {};
+                });			
         }
 
+		/** call delete service */
 		function del(employee) {			
             EmployeeService.Delete(employee)
                 .then(function (response) {
-                   // if (response.success) {
-                      //console.log(response);
-                   // } else {
-                       // console.log(response.message); 
-                   // }
-					getAll();
-                })
+                	//getAll();
+                   }, function (){
+                	   console.log('wrong response'); 
+                       console.log(response); 
+                   })['finally'](function() {
+                       getAll();                       
+                   });
          }
-		
 
 
-
+		/** call update service */
 		function update() {
-
             EmployeeService.Update(vm.employee)
                 .then(function (response) {
-                   if (response.success) {
-                      console.log(response);
-                   } else {
-                        console.log(response.message); 
-                   }
-				   getAll();
-                })
+                   	 //getAll();
+                   }, function (){
+                	   console.log('wrong response'); 
+                       console.log(response); 
+                })['finally'](function() {
+                    getAll();
+                    $scope.employee_update = {};
+                });
         }
+		
 
-
+		/** call get all service */
         function getAll() {
             EmployeeService.GetAll()
                 .then(function (response) {
-                       console.log(response);
+                       //console.log(response);
 					   $scope.employees = response.data;
                     }, function (response) {
+                    	console.log('wrong response'); 
                         console.log(response);
                     });
-			
         }
 
-
+		/** call get all service */
         function getById() {
-
             EmployeeService.GetById(vm.employee.id)
-                .then(function (response) {
-				    
+                .then(function (response) {				    
                          if (response.success) {
-                           console.log(response);
+                            //console.log(response);
 						   }  else {
                             console.log('no response at all:'); 
 						    console.log(response);
@@ -133,13 +119,12 @@
 						 $scope.employee_update.lastname = response.lastname; 
 
 			        } , function (response) {
-					   console.log('wrong response'); 
-                });
-			
+					   console.log('wrong response');
+					   console.log(response); 
+                });			
         }
-        
-		
+	
 
-    }
+    }// EmployeeController end
 
 })();

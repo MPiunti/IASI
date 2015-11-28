@@ -42,7 +42,7 @@
 {{employee_update.firstname}}
 <br/><br/>
 
-	  <form novalidate class="form" name="newEmployeeForm" ng-submit="submitForm()"> 
+	  <form  class="form" name="newEmployeeForm" ng-submit="submitForm()"> 
          <label>First Name</label><input type="text" id="firstName" ng-model="employee.firstName" /> 
          <label>Last Name</label><input type="text" id="lastName" ng-model="employee.lastName" /> 
 		 <label>Address</label>
@@ -52,14 +52,16 @@
             <option value="2">Two Avenue</option> 
             <option value="3">Three Avenue</option>
          </select> 
-		 <label>Salary</label><input type="text" id="salary" ng-model="employee.salary" />
+		 <label>Salary</label>
+		 <input type="text" id="salary" name="salary" ng-model="employee.salary" 
+			        ng-pattern="/^\d+$/" ng-class="{ 'has-error': newEmployeeForm.salary.$invalid }" />
 		 <button class="btn btn-success" type="submit">Create</button> 
       </form>
 
       <br/>
       <br/>
 
-	  <form novalidate class="form" name="updateEmployeeForm" ng-submit="updateSubmit()"> 
+	  <form  class="form" name="updateEmployeeForm" ng-submit="updateSubmit()"> 
 	     <input type="hidden" id="id" ng-model="employee_update.id" />
          <label>First Name</label><input type="text" id="firstName" name="employee_update.firstName" ng-model="employee_update.firstName" />
          <label>Last Name</label><input type="text" id="lastName" name="employee_update.lastName" ng-model="employee_update.lastName" /> 
@@ -70,7 +72,9 @@
             <option value="2">Two Avenue</option> 
             <option value="3">Three Avenue</option>
          </select> 
-		 <label>Salary</label><input type="text" id="salary" ng-model="employee_update.salary" />
+		 <label>Salary</label>
+		 <input type="text" id="salary" ng-model="employee_update.salary" 
+		          ng-pattern="/^\d+$/" class="form-group" ng-class="{ 'has-error': updateEmployeeForm.salary.$invalid }" />
 		 <button class="btn btn-primary" type="submit">Update</button> 
       </form>
 </div>
