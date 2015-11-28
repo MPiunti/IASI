@@ -1,0 +1,93 @@
+
+<html>
+   <head>
+      <title>Employee Frontend with AngularJS</title>
+      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+      
+   </head>
+   <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+   
+   <body ng-app = "app">
+      <h2>Employees <i>Create Read Update Delete </i></h2> <br/>
+      <div    ng-controller="EmployeeController">
+      
+
+         <table class="table table-striped" >
+            <tr>
+               <th>First Name</th>
+               <th>Second Name</th>
+               <th>City</th>
+			   <th>Address</th>
+			   <th>State</th>
+			   <th>Salary</th>
+			   <th>Remove</th>
+			   <th>Change</th>
+            </tr>
+            <tr ng-repeat = "employee in employees">
+               <td>{{ employee.firstName }}</td>
+               <td>{{ employee.lastName }}</td>
+			   <td>{{ employee.address.cityName }}</td>
+               <td>{{ employee.address.streetName }}</td>
+			   <td>{{ employee.address.stateName }}</td>
+			   <td>{{ employee.salary }}</td>
+			   <td><button type="button" class="btn btn-danger" ng-click="del(employee)">Remove</button></td>
+			   <td><button type="button" class="btn btn-info" ng-click="upd(employee)">Change</button></td>
+            </tr>
+         </table>
+      </div>
+
+<br/><br/>
+{{employee_update.firstname}}
+<br/><br/>
+
+<div ng-controller="EmployeeController"> 
+	  <form novalidate class="form" name="newEmployeeForm" ng-submit="submitForm()"> 
+         <label>First Name</label><input type="text" id="firstName" ng-model="employee.firstName" /> 
+         <label>Last Name</label><input type="text" id="lastName" ng-model="employee.lastName" /> 
+		 <label>Address</label>
+		 <select ng-model="employee.address.id">
+		    <option>Select an option</option> 
+            <option value="1">One Avenue</option> 
+            <option value="2">Two Avenue</option> 
+            <option value="3">Three Avenue</option>
+         </select> 
+		 <label>Salary</label><input type="text" id="salary" ng-model="employee.salary" />
+		 <button class="btn btn-success" type="submit">Create</button> 
+      </form>
+
+<br/><br/>
+
+	  <form novalidate class="form" name="updateEmployeeForm" ng-submit="updateSubmit()"> 
+	     <input type="hidden" id="id" ng-model="employee_update.id" />
+         <label>First Name</label><input type="text" id="firstName" name="employee_update.firstName" ng-model="employee_update.firstName" />
+		       <span ng-bind="employee_update.firstname"></span> {{employee_update.firstname}}
+         <label>Last Name</label><input type="text" id="lastName" name="employee_update.lastName" ng-model="employee_update.lastName" /> 
+		 <label>Address</label>
+		 <select ng-model="employee_update.address.id">
+		    <option>Select an option</option> 
+            <option value="1">One Avenue</option> 
+            <option value="2">Two Avenue</option> 
+            <option value="3">Three Avenue</option>
+         </select> 
+		 <label>Salary</label><input type="text" id="salary" ng-model="employee_update.salary" />
+		 <button class="btn btn-primary" type="submit">Update</button> 
+      </form>
+</div>
+
+
+
+	<script>
+	 angular.module('app',[])
+	</script>
+	
+    <!--<script src="employee.local.service.js"></script>-->
+	<script src="employee.service.js"></script>
+    <script src="employee.controller.js"></script>
+
+
+
+
+   </body>
+</html>
