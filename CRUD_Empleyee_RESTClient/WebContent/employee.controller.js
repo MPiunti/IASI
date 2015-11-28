@@ -10,6 +10,14 @@
 		
 		
 		var vm = this;
+		
+		$scope.newEmployeeShow=false;
+		$scope.updEmployeeShow=false;
+		
+		$scope.create = function(item, event){
+			 $scope.newEmployeeShow=true;
+			 $scope.updEmployeeShow=false;
+		}
 
 
         $scope.submitForm = function(item, event) { 
@@ -18,11 +26,13 @@
 		   vm.employee = $scope.employee;
 		   $scope.employee_update ={}
 		   create();
+		   $scope.newEmployeeShow=false;
         }
         
         $scope.updateSubmit  = function(item, event) { 
-			vm.employee = $scope.employee_update;
+			vm.employee = $scope.employee_update;			
 			update();
+			$scope.updEmployeeShow=false;
         }
 
 		$scope.del = function(obj) { 
@@ -37,6 +47,8 @@
 			$scope.employee_update.lastName = obj.lastName;
 			$scope.employee_update.address.id = obj.address.id;
 			$scope.employee_update.salary = obj.salary;
+			$scope.newEmployeeShow=false;
+			$scope.updEmployeeShow=true;
 	    }
 
       
