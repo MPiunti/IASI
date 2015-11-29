@@ -1,7 +1,9 @@
 ##One page APP REST CLIENT in AngularJS
 
-HTTP and J2EE Preview servers can be used to launch the html 
+Web front end for the SpringMVC_JPA_REST services.
 
+
+Can be launched using HTTP and J2EE Preview servers in Eclipse - use employee.view.html. 
 If you want to use preview servers to test it against the REST APIs, you may change the service port manually. 
 
 Open the "servers.xml" found in the ".metadata\.plugins\org.eclipse.wst.server.core" directory 

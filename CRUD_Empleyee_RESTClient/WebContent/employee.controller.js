@@ -14,6 +14,15 @@
 		$scope.newEmployeeShow=false;
 		$scope.updEmployeeShow=false;
 		
+
+		$scope.employee = {};
+		$scope.employee.address = {};
+		$scope.employee.address.id="";
+		
+		$scope.employee_update = {};
+		$scope.employee_update.address = {};
+		$scope.employee_update.address.id="";
+		
 		$scope.create = function(item, event){
 			 $scope.newEmployeeShow=true;
 			 $scope.updEmployeeShow=false;
@@ -21,10 +30,7 @@
 
 
         $scope.submitForm = function(item, event) { 
-           //EmployeeService.Create()
-			   //.then(getAll());
 		   vm.employee = $scope.employee;
-		   $scope.employee_update ={}
 		   create();
 		   $scope.newEmployeeShow=false;
         }
@@ -40,8 +46,7 @@
         }
 		
 		$scope.upd = function(obj) {  
-			$scope.employee_update = {};
-			$scope.employee_update.address = {};
+
 			$scope.employee_update.id = obj.id;
 			$scope.employee_update.firstName = obj.firstName;
 			$scope.employee_update.lastName = obj.lastName;
@@ -70,6 +75,8 @@
                 })['finally'](function() {
                     getAll();
                     $scope.employee = {};
+                    $scope.employee.address = {};
+            		$scope.employee.address.id="";
                 });			
         }
 
@@ -98,6 +105,8 @@
                 })['finally'](function() {
                     getAll();
                     $scope.employee_update = {};
+                    $scope.employee_update.address = {};
+            		$scope.employee_update.address.id="";
                 });
         }
 		
