@@ -26,15 +26,15 @@ and Java objects are converted into HTTP response bodies.
 //@   Secured("ROLE_USER")
 class EmployeeController {
 
-	//@Autowired
+	@Autowired
     private EmployeeRepository employeeRepository;
     
     @Autowired
     private AddressRepository addressRepository;
 
-    @Autowired
-    public EmployeeController(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
+   // @Autowired
+    public EmployeeController() {
+        //this.employeeRepository = employeeRepository;
     }
     
     @RequestMapping(value = "/{id}/", method = RequestMethod.GET)
@@ -54,9 +54,9 @@ class EmployeeController {
     @ResponseStatus(value = HttpStatus.OK)
     public Employee createEmployee(@RequestBody Employee employee) {
     	
-    	/*System.out.println("\n\n\\n HERE creating   ******"+employee+"\n\n\n ");
+    	/* do not update ADDRESS null values */
     	Address addr = addressRepository.findById(employee.getAddress().getId());
-    	employee.setAddress(addr);    	*/
+    	employee.setAddress(addr);    	
     	Employee emp = employeeRepository.save(employee);
     	
     	return employeeRepository.findById(emp.getId());
@@ -66,6 +66,9 @@ class EmployeeController {
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     public Employee updateEmployee(@RequestBody Employee employee) {
+    	/* do not update ADDRESS null values */
+    	Address addr = addressRepository.findById(employee.getAddress().getId());
+    	employee.setAddress(addr);
     	Employee emp = employeeRepository.save(employee);
     	return employeeRepository.findById(emp.getId());
     }
