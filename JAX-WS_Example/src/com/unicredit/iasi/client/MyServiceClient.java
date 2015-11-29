@@ -19,9 +19,16 @@ public class MyServiceClient{
 
         Service service = Service.create(url, qname);
 
-        MyService hello = service.getPort(MyService.class);
+        MyService myService = service.getPort(MyService.class);
 
-        System.out.println(hello.getHelloWorldAsString("IASI"));
+        System.out.println("TEST1: " + myService.getHelloWorldAsString("IASI"));
+        
+        System.out.println("TEST2: F° 32.0 is C°:" + myService.getFtoC("32.0"));
+        
+        System.out.println("TEST3: F° 32.0 is C°:" + myService.getFtoC("32.0"));
+
+        
+        System.out.println("C° 0.0 is F°:" + myService.getCtoF("0.0"));
 
     }
 

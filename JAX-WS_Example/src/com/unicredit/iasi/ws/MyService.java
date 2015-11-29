@@ -11,5 +11,9 @@ import javax.jws.soap.SOAPBinding.Style;
 public interface MyService{
  
 	@WebMethod String getHelloWorldAsString(String name);
+	
+	@WebMethod String getCtoF(String c);
+	
+	@WebMethod String getFtoC(String f);
 
 }
