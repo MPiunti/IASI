@@ -1,6 +1,8 @@
 package com.unicredit.iasi.ws;
 
 import javax.jws.WebService;
+
+import com.unicredit.iasi.ws.domain.Temperature;
 	 
 //Service Implementation
 @WebService(endpointInterface = "com.unicredit.iasi.ws.MyService")
@@ -24,6 +26,18 @@ public class MyServiceImpl implements MyService {
 		Float celsius;
 		celsius =  (Float.parseFloat(f) - 32)*5/9; 
 		return celsius.toString();
+	}
+
+	@Override
+	public Temperature getTemperature(Temperature t) {
+
+		Temperature tret = new Temperature();
+		
+		tret.setFarenheit(((t.getCelsius() * 9) / 5) + 32);
+		tret.setCelsius((t.getFarenheit() - 32)*5/9  );
+		
+		
+		return tret;
 	}
  
 }

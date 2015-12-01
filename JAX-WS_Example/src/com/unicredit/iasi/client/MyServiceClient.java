@@ -5,6 +5,7 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
 import com.unicredit.iasi.ws.MyService;
+import com.unicredit.iasi.ws.domain.Temperature;
 
 
 public class MyServiceClient{
@@ -29,6 +30,16 @@ public class MyServiceClient{
 
         
         System.out.println("C° 0.0 is F°:" + myService.getCtoF("0.0"));
+        
+        Temperature t = new Temperature();
+        t.setCelsius(Float.valueOf("0"));
+        t.setFarenheit(Float.valueOf("0"));
+        
+        Temperature response = myService.getTemperature(t);
+        
+        System.out.println("TEST 4:" + myService.getTemperature(t) );
+        
+        
 
     }
 
