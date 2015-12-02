@@ -2,8 +2,10 @@ package UnicreditIASI.SpringMVC_JPA_REST;
 
 
 /**
- * Base Line Application root for compinent scans
+ * Dummy Class - Base Line Application root for component scans
  * @author m.piunti
  * @date 2015-11-12
  */
-public interface Application {}
+public interface Application {
+	final String version = "1.0.0";
+}
