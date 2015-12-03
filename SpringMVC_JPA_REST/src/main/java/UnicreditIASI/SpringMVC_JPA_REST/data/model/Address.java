@@ -80,7 +80,7 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return String.format("id:%s, streetNAme:%s, cityName:%s, stateName:%s (%s)", id, streetName, cityName, stateName,
+		return String.format("id:%s, streetName:%s, cityName:%s, stateName:%s (%s)", id, streetName, cityName, stateName,
 				zipCode);
 	}
 	
