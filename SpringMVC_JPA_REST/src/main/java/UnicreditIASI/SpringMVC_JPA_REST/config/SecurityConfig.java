@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -39,13 +40,28 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
             .userDetailsService(userService())
             .passwordEncoder(passwordEncoder());
     }
+    
+	@Override
+	/**
+	 * Used for bypassing Authentication on EMPLOYEE REST APIs
+	 */
+	public void configure(WebSecurity web) throws Exception {
+		web
+			.ignoring()
+				.antMatchers("/employee/**");
+	}
 
     @Override
+    /**
+     * Used for Securing Web Application and 
+     * programming ROLE BASED ACCESS CONTROL to resources
+     */
     protected void configure(HttpSecurity http) throws Exception {
-        http//.antMatcher("/employee/**").anonymous().and()
+        http
             .authorizeRequests()
                 .antMatchers("/", "/favicon.ico", "/resources/**", "/signup").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .antMatchers("/**").hasAnyRole("ROLE_USER","ROLE_ADMIN")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()

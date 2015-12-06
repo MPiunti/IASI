@@ -40,7 +40,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         // used for introducing Header : Access-Control-Allow-Origin:*
         SimpleCORSFilter simpleCORSFilter = new SimpleCORSFilter();
 
-        return new Filter[] {characterEncodingFilter, simpleCORSFilter //};
+        return new Filter[] {characterEncodingFilter, simpleCORSFilter //needed for Cross Domain Access
         		, securityFilterChain };
     }
 
