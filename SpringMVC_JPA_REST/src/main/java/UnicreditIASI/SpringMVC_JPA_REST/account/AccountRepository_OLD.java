@@ -8,19 +8,23 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Repository
-@Transactional(readOnly = true)
-public class AccountRepository {
+@Transactional
+public class AccountRepository_OLD {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
 	@Inject
-	private PasswordEncoder passwordEncoder;
+	private PasswordEncoder passwordEncoder; 
 	
 	@Transactional
 	public Account save(Account account) {
 		account.setPassword(passwordEncoder.encode(account.getPassword()));
-		entityManager.persist(account);
+		try{
+			entityManager.persist(account);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
 		return account;
 	}
 	

@@ -24,7 +24,7 @@ public class UserServiceTest {
 	private UserService userService = new UserService();
 
 	@Mock
-	private AccountRepository accountRepositoryMock;
+	private AccountRepository_OLD accountRepositoryMock;
 
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();

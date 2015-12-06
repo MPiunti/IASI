@@ -1,23 +1,18 @@
 package UnicreditIASI.SpringMVC_JPA_REST.data.controller;
 
-import UnicreditIASI.SpringMVC_JPA_REST.data.model.Address;
-import UnicreditIASI.SpringMVC_JPA_REST.data.repository.AddressRepository;
-
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import UnicreditIASI.SpringMVC_JPA_REST.data.model.Address;
+import UnicreditIASI.SpringMVC_JPA_REST.data.repository.AddressRepository;
 
 /* RestController allows to return response bodies in JSON
 HttpMessageConverter work in both directions: incoming requests bodies are converted to Java objects, 

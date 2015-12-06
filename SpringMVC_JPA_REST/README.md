@@ -5,6 +5,8 @@ Spring 4
 MVC, Security and REST CONTROLLOER 
 with JPA and MySQL data model
 
+PREREQUISITES: this example uses Tomcat 8 and works with MySQL instance up and running. Before launchng please set the MySQL environment  SCHEMA `jpa-app` (refer to the script_create_db in respurces direcotry) and set the DB persistence properties;
+
 Consists in a simple Spring Web MVC application includidng authentication components (Spring Security), logging, traces, filter, Java Configuration and JPA Object Relational Mapping
 
 It also provides open REST SERVICES and CRUD ACTIONS for the Employee ENTITY, to be accessed form web frontend.

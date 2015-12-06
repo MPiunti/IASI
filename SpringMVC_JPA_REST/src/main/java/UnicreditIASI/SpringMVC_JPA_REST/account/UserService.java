@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.*;
 public class UserService implements UserDetailsService {
 	
 	@Autowired
-	private AccountRepository accountRepository;
+	private AccountService accountService;
 	
 	@PostConstruct	
 	protected void initialize() {
@@ -24,7 +24,7 @@ public class UserService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Account account = accountRepository.findByEmail(username);
+		Account account = accountService.findByEmail(username);
 		if(account == null) {
 			throw new UsernameNotFoundException("user not found");
 		}

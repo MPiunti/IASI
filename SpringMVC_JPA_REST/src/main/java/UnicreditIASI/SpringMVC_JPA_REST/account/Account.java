@@ -7,9 +7,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "account")
-@NamedQuery(name = Account.FIND_BY_EMAIL, query = "select a from Account a where a.email = :email")
+//@NamedQuery(name = Account.FIND_BY_EMAIL, query = "select a from Account a where a.email = :email")
 public class Account implements java.io.Serializable {
-
+	
+	// The use of Spring Data JpaRepository prevent us to specify named-queries, it will do it for us automatically
 	public static final String FIND_BY_EMAIL = "Account.findByEmail";
 
 	@Id

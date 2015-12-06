@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Secured("ROLE_USER")
 class AccountController {
 
-    private AccountRepository accountRepository;
+    //private AccountRepository accountRepository;
+	
+	private AccountService accountService;
 
     @Autowired
-    public AccountController(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
+    public AccountController(AccountService accountService) {
+        this.accountService = accountService;
     }
 
     @RequestMapping(value = "account/current", method = RequestMethod.GET)
@@ -28,6 +30,6 @@ class AccountController {
     @ResponseBody
     public Account accounts(Principal principal) {
         Assert.notNull(principal);
-        return accountRepository.findByEmail(principal.getName());
+        return accountService.findByEmail(principal.getName());
     }
 }
