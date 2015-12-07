@@ -2,8 +2,6 @@ package UnicreditIASI.SpringMVC_JPA_REST.data.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.NamedNativeQuery;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
