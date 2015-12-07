@@ -5,6 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <property name="java-output-path" value="/SpringWS-Producer/target/classes"/>
-        <property name="context-root" value="SpringWS-Producer"/>
+        <property name="context-root" value="spring4soap"/>
     </wb-module>
 </project-modules>

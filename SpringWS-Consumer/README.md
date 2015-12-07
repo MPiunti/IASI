@@ -1,7 +1,8 @@
 
-##SpringWS Producer
+##SpringWS Consumer
 
-This web application produces Web Service Endpoint which is deployed at:
+This web application is a client using Web Service deployed at:
 http://localhost:8080/spring4soap/soapws/students.wsdl
 
-It can be used since SpringWS Consumer project
+The main class is 'RunSoapClient'. 
+In order to test the project the Producer Application must be uo and run.

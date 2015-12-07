@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.concretepage.wsdl.GetStudentResponse;
 
 public class RunSoapClient {
+	
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
 	    ctx.register(ClientAppConfig.class);
@@ -16,4 +17,5 @@ public class RunSoapClient {
 		System.out.println("Age:"+response.getStudent().getAge());
 		System.out.println("Class:"+response.getStudent().getClazz());
 	}
+	
 }
