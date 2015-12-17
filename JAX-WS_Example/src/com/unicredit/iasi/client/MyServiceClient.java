@@ -24,7 +24,7 @@ public class MyServiceClient{
 
         System.out.println("TEST1: " + myService.getHelloWorldAsString("IASI"));
         
-        System.out.println("TEST2: F° 32.0 is C°:" + myService.getFtoC("32.0"));
+        System.out.println("TEST2: C° 1132.0 is F°:" + myService.getFtoC("1132.0"));
         
         System.out.println("TEST3: F° 32.0 is C°:" + myService.getFtoC("32.0"));
 

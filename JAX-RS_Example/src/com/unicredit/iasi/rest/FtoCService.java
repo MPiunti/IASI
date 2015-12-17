@@ -14,6 +14,7 @@ public class FtoCService {
 	  @Produces("application/json")
 	  public Response convertFtoC() throws JSONException {
  
+		//Convert default values
 		JSONObject jsonObject = new JSONObject();
 		Double fahrenheit = 98.24;
 		Double celsius;

@@ -7,6 +7,7 @@ import com.concretepage.wsdl.GetStudentRequest;
 import com.concretepage.wsdl.GetStudentResponse;
 
 public class StudentClient extends WebServiceGatewaySupport  {
+	
 	public GetStudentResponse getStudentById(int studentId) {
 		GetStudentRequest request = new GetStudentRequest();
 		request.setStudentId(studentId);

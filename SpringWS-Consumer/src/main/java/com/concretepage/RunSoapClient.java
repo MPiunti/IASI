@@ -12,7 +12,8 @@ public class RunSoapClient {
 	    ctx.refresh();
 		StudentClient studentClient = ctx.getBean(StudentClient.class);
 		System.out.println("For Student Id: 1");
-		GetStudentResponse response = studentClient.getStudentById(1);
+		GetStudentResponse response = studentClient.getStudentById(2);
+		
 		System.out.println("Name:"+response.getStudent().getName());
 		System.out.println("Age:"+response.getStudent().getAge());
 		System.out.println("Class:"+response.getStudent().getClazz());
